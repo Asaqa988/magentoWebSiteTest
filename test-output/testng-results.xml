@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-01T19:34:34 EET" name="Default suite" finished-at="2024-08-01T19:34:48 EET" duration-ms="14272">
+  <suite started-at="2024-08-04T20:06:57 EET" name="Default suite" finished-at="2024-08-04T20:07:02 EET" duration-ms="4927">
     <groups>
     </groups>
-    <test started-at="2024-08-01T19:34:34 EET" name="Default test" finished-at="2024-08-01T19:34:48 EET" duration-ms="14272">
+    <test started-at="2024-08-04T20:06:57 EET" name="Default test" finished-at="2024-08-04T20:07:02 EET" duration-ms="4927">
       <class name="magentoWebSiteTesting.MyFirstTest">
-        <test-method is-config="true" signature="mySetup()[pri:0, instance:magentoWebSiteTesting.MyFirstTest@1817f1eb]" started-at="2024-08-01T19:34:34 EET" name="mySetup" finished-at="2024-08-01T19:34:37 EET" duration-ms="3147" status="PASS">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:magentoWebSiteTesting.MyFirstTest@767e20cf]" started-at="2024-08-04T20:06:57 EET" name="mySetup" finished-at="2024-08-04T20:06:59 EET" duration-ms="2235" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mySetup -->
-        <test-method signature="CreateAnAccount()[pri:1, instance:magentoWebSiteTesting.MyFirstTest@1817f1eb]" started-at="2024-08-01T19:34:37 EET" name="CreateAnAccount" finished-at="2024-08-01T19:34:43 EET" duration-ms="5738" status="PASS">
+        <test-method signature="addMenItem()[pri:4, instance:magentoWebSiteTesting.MyFirstTest@767e20cf]" started-at="2024-08-04T20:06:59 EET" name="addMenItem" finished-at="2024-08-04T20:07:02 EET" duration-ms="2674" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CreateAnAccount -->
-        <test-method signature="logOut()[pri:2, instance:magentoWebSiteTesting.MyFirstTest@1817f1eb]" started-at="2024-08-01T19:34:43 EET" name="logOut" finished-at="2024-08-01T19:34:45 EET" duration-ms="2233" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method signature="loginTest()[pri:3, instance:magentoWebSiteTesting.MyFirstTest@1817f1eb]" started-at="2024-08-01T19:34:45 EET" name="loginTest" finished-at="2024-08-01T19:34:48 EET" duration-ms="3121" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginTest -->
+        </test-method> <!-- addMenItem -->
       </class> <!-- magentoWebSiteTesting.MyFirstTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
