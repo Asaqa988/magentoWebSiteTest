@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.v125.domstorage.model.Item;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -22,13 +23,15 @@ public class MyFirstTest {
 
 	String password = "iLoveMyMom!234k";
 
+
 	String emailAddressToLogin = "";
 
 	@BeforeTest
 	public void mySetup() {
 		driver.manage().window().maximize();
 		driver.get(myWebsite);
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3)); 
 
 	}
 
@@ -114,31 +117,63 @@ public class MyFirstTest {
 	@Test(priority = 4)
 
 	public void addMenItem() throws InterruptedException {
-		WebElement MenSection = driver.findElement(By.cssSelector("#ui-id-5"));
+		WebElement MenSection = driver.findElement(By.id("ui-id-5"));
+		
 		MenSection.click();
-
-		WebElement OlItemsContainer = driver.findElement(By.className("product-items"));
-
-		System.out.println(OlItemsContainer.findElements(By.tagName("li")).size());
-		List<WebElement> Items = OlItemsContainer.findElements(By.tagName("li"));
-
-		int randomIndex = rand.nextInt(Items.size());
-		System.out.println(randomIndex);
-		Items.get(randomIndex).click();
-
-		WebElement SizesContainer = driver
-				.findElement(By.cssSelector("div[class='swatch-attribute size'] div[role='listbox']"));
-
-		List<WebElement> allSizes = SizesContainer.findElements(By.tagName("div"));
-		int RandomSize = rand.nextInt(allSizes.size());
-		allSizes.get(RandomSize).click();
 		
-		WebElement colorsContainer = driver.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
+		; 
 		
-		List<WebElement> allColors =colorsContainer.findElements(By.tagName("div"));
-		int RandomColor = rand.nextInt(allColors.size());
+//		System.out.println(driver.findElements(By.className("product-item")).size());
 		
-		allColors.get(RandomColor).click();
+		WebElement productITemsContainer = driver.findElement(By.className("product-items"));
+		
+//		System.out.println(productITemsContainer.findElements(By.className("product-item")).size());;
+//		
+//		; 
+		
+//		System.out.println(driver.findElements(By.tagName("li")).size());
+		
+		List<WebElement> AllItems = productITemsContainer.findElements(By.tagName("li"));
+		
+int totalNumberOfItems = AllItems.size(); 
+int randomItem = rand.nextInt(totalNumberOfItems); 
+
+AllItems.get(randomItem).click();;
+
+WebElement theContainerOfSizes = driver.findElement(By.cssSelector(".swatch-attribute-options.clearfix"));
+
+;
+
+String [] sizes = {"33","34","36","37"};
+// select any one for me i will select the first one 
+//System.out.println(theContainerOfSizes.findElements(By.className("swatch-option")).size());
+//System.out.println(theContainerOfSizes.findElements(By.tagName("div")).size());
+List<WebElement> ListOfSizes =theContainerOfSizes.findElements(By.className("swatch-option"));
+int numberofSizes = ListOfSizes.size();
+
+int randomSize = rand.nextInt(numberofSizes);
+ListOfSizes.get(randomSize).click();;
+
+
+WebElement ColorsContainer = driver.findElement(By.cssSelector("div[class='swatch-attribute color'] div[role='listbox']"));
+List<WebElement> ListOfClors = ColorsContainer.findElements(By.tagName("div")); 
+int numberOfColors = ListOfClors.size(); 
+
+int randomColor = rand.nextInt(numberOfColors);
+ListOfClors.get(randomColor).click();
+
+WebElement AddToCartButton = driver.findElement(By.id("product-addtocart-button"));
+
+AddToCartButton.click();
+
+
+WebElement MessageAdded = driver.findElement(By.className("message-success"));
+
+
+System.out.println(MessageAdded.getText().contains("You added"));
+
+
+Assert.assertEquals(MessageAdded.getText().contains("You added"), true);
 
 	}
 
