@@ -35,7 +35,7 @@ public class MyFirstTest {
 
 	}
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1, enabled = true)
 	public void CreateAnAccount() {
 
 		// xpath
@@ -89,18 +89,32 @@ public class MyFirstTest {
 		passwordInput.sendKeys(password);
 		confirmPassword.sendKeys(password);
 		createAccountButton.click();
-
 		emailAddressToLogin = firstname + lastname + randomnumber + domainName;
+		
+		WebElement MessageAsWebElement = driver.findElement(By.className("messages"));
+		
+		String TheActualMessage = MessageAsWebElement.getText(); 
+		
+		String ExpectedMessage = "Thank you for registering with Main Website Store.";
+		
+	
+	Assert.assertSame(TheActualMessage, ExpectedMessage);
 
 	}
 
-	@Test(priority = 2, enabled = false)
+	@Test(priority = 2)
 	public void logOut() {
 		driver.get(logoutPage);
+		WebElement LogoutMessage = driver.findElement(By.xpath("//span[@data-ui-id='page-title-wrapper']"));
+		
+		String ActualMsg = LogoutMessage.getText();
+		String ExpectedMsg = "You are signed out"; 
+		
+		Assert.assertEquals(ActualMsg, ExpectedMsg);
 
 	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 3 )
 	public void loginTest() {
 		WebElement LoginPage = driver.findElement(By.linkText("Sign In"));
 		LoginPage.click();
@@ -112,6 +126,13 @@ public class MyFirstTest {
 		EmailLoginInput.sendKeys(emailAddressToLogin);
 		passwordInput.sendKeys(password);
 		LoginButton.click();
+		
+		String WelcomeMessage = driver.findElement(By.className("logged-in")).getText();
+		
+		boolean ActualValue = WelcomeMessage.contains("Welcome");
+		boolean ExpectedValue = true ; 
+		
+		Assert.assertEquals(ActualValue, ExpectedValue);
 	}
 
 	@Test(priority = 4)
