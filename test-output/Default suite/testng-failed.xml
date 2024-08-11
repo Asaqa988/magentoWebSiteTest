@@ -6,7 +6,7 @@
       <class name="magentoWebSiteTesting.MyFirstTest">
         <methods>
           <include name="mySetup"/>
-          <include name="logOut"/>
+          <include name="addWomenItem"/>
         </methods>
       </class> <!-- magentoWebSiteTesting.MyFirstTest -->
     </classes>
